@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{27457b10-0bc4-4352-8e95-0025c3442754}">
+        <property name="assetPath">
+            <value>User Interface/chooseplayerearth.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.08115646258503402</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{515a2373-9882-4d18-8cba-48a0b6c4aaa7}</destination>
+        </relationship>
+    </object>
+</objects>
