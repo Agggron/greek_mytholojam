@@ -20,9 +20,10 @@ MonoBehaviour:
   - {fileID: 114783844798116312}
   - {fileID: 114695108368653076}
   - {fileID: 114723497464591554}
+  - {fileID: 114556602495443208}
   MasterBankRef: {fileID: 114074234548382864}
   StringsBankRef: {fileID: 114591232225446482}
-  stringsBankWriteTime: 636468051880000000
+  stringsBankWriteTime: 636468928490000000
   cacheVersion: 2
 --- !u!114 &114003107027359632
 MonoBehaviour:
@@ -81,11 +82,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/Soundware_MacMini/Documents/GitHub/greek_mytholojam/Assets/FMOD/greekmytho_fmod/Build/Desktop/Master
     Bank.bank
-  lastModified: 636468051880000000
+  lastModified: 636468928490000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 26336
+    Value: 65408
   Exists: 1
 --- !u!114 &114103634394078688
 MonoBehaviour:
@@ -249,6 +250,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 100
+--- !u!114 &114556602495443208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Footsteps
+  guid: 019dacc9c078864eb98cd44cc33e1079
+  Banks:
+  - {fileID: 114074234548382864}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &114591232225446482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,11 +284,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets/FMOD/greekmytho_fmod/Build/Desktop/Master Bank.strings.bank
-  lastModified: 636468051880000000
+  lastModified: 636468928490000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 916
+    Value: 976
   Exists: 1
 --- !u!114 &114600814781499132
 MonoBehaviour:

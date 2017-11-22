@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{6bf4930b-c246-466e-98fc-7d58239034b7}">
+        <property name="assetPath">
+            <value>Player/Footsteps/footstep_concrete_02.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.48081632653061224</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{515a2373-9882-4d18-8cba-48a0b6c4aaa7}</destination>
+        </relationship>
+    </object>
+</objects>

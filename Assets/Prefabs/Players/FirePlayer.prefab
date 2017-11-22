@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23422554452923214}
   - component: {fileID: 54123881158560346}
   - component: {fileID: 114256805959252172}
+  - component: {fileID: 114570630656393796}
   m_Layer: 0
   m_Name: FirePlayer
   m_TagString: Player
@@ -197,6 +198,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &114570630656393796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434510357367822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ef6390d6bfa459a8478682ec0adb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputsound: event:/Player/Footsteps
+  walkingspeed: 0.5
 --- !u!136 &136391253133830768
 CapsuleCollider:
   m_ObjectHideFlags: 1
