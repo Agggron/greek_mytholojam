@@ -9,11 +9,13 @@ public class PlayerMovement : MonoBehaviour {
 	private Vector3 movement;
 	private int groundMask;
 	private float cameraRayLength = 100.0f;
+	private Footsteps footsteps;
 
 	void Awake() 
 	{
 		rb = GetComponent<Rigidbody> ();
 		groundMask = LayerMask.GetMask ("Ground");
+		footsteps = GetComponent<Footsteps> ();
 	}
 
 	void FixedUpdate() 
@@ -21,9 +23,19 @@ public class PlayerMovement : MonoBehaviour {
 		float horizontal = Input.GetAxisRaw ("Horizontal");
 		float vertical = Input.GetAxisRaw ("Vertical");
 
-		Move (horizontal, vertical);
+		// if there is any movement in horizontal or vertical
+		if ((Mathf.RoundToInt (horizontal) != 0) || (Mathf.RoundToInt (vertical) != 0)) 
+		{
+			footsteps.playerismoving = true;
 
-		Turning (horizontal, vertical);
+			Move (horizontal, vertical);
+
+			Turning (horizontal, vertical);
+		} 
+		else 
+		{
+			footsteps.playerismoving = false;
+		}
 	}
 
 	private void Move(float horizontal, float vertical) 

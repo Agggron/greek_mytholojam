@@ -6,10 +6,10 @@ public class Footsteps : MonoBehaviour {
 
 	[FMODUnity.EventRef]
 	public string inputsound;
-	bool playerismoving;
+	public bool playerismoving;
 	public float walkingspeed;
 
-	void update ()
+	/*void update ()
 	{
 		if (Input.GetAxis ("Vertical") >= 0.01f || Input.GetAxis ("Horizontal") >= 0.01f || Input.GetAxis ("Vertical") <= 0.01f || Input.GetAxis ("Horizontal") <= 0.01f)
 		{
@@ -21,11 +21,11 @@ public class Footsteps : MonoBehaviour {
 			//Debug.Log ("Player is not moving");
 			playerismoving = false;
 		}
-	}
+	}*/
 
 	void CallFootsteps ()
 	{
-		if (playerismoving = true) 
+		if (playerismoving == true) 
 		{
 			Debug.Log ("Player is moving");
 			FMODUnity.RuntimeManager.PlayOneShot (inputsound);
@@ -34,6 +34,7 @@ public class Footsteps : MonoBehaviour {
 
 	void Start ()
 	{
+		
 		InvokeRepeating ("CallFootsteps", 0, walkingspeed);
 	}
 
