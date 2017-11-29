@@ -9,6 +9,12 @@ public class Footsteps : MonoBehaviour {
 	public bool playerismoving;
 	public float walkingspeed;
 
+	PlayerHealth playerHealth;
+
+	void Awake()
+	{
+		playerHealth = GetComponent<PlayerHealth> ();
+	}
 	/*void update ()
 	{
 		if (Input.GetAxis ("Vertical") >= 0.01f || Input.GetAxis ("Horizontal") >= 0.01f || Input.GetAxis ("Vertical") <= 0.01f || Input.GetAxis ("Horizontal") <= 0.01f)
@@ -25,9 +31,8 @@ public class Footsteps : MonoBehaviour {
 
 	void CallFootsteps ()
 	{
-		if (playerismoving == true) 
+		if ((playerHealth.isDead == false) && (playerismoving == true))
 		{
-			Debug.Log ("Player is moving");
 			FMODUnity.RuntimeManager.PlayOneShot (inputsound);
 		}
 	}

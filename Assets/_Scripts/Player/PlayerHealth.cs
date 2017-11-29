@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour {
 	private GameController gameController;
 
 	PlayerMovement playerMovement;
-	bool isDead;
+	public bool isDead;
 	public int currentHealth;
 
 
