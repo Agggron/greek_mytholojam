@@ -229,6 +229,11 @@ MonoBehaviour:
   playGameButton: {fileID: 422747457}
   choosePlayersButtons: {fileID: 875844312}
   sceneController: {fileID: 2134931075}
+  SoundPlayGameButton: event:/User Interface/PlayGameButton
+  SoundFirePlayerButton: event:/User Interface/ChoosePlayerFire
+  SoundWaterPlayerButton: event:/User Interface/ChoosePlayerWater
+  SoundEarthPlayerButton: event:/User Interface/ChoosePlayerEarth
+  SoundAirPlayerButton: event:/User Interface/ChoosePlayerAir
 --- !u!114 &422747460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +465,11 @@ MonoBehaviour:
   playGameButton: {fileID: 422747457}
   choosePlayersButtons: {fileID: 875844312}
   sceneController: {fileID: 2134931075}
+  SoundPlayGameButton: event:/User Interface/PlayGameButton
+  SoundFirePlayerButton: event:/User Interface/ChoosePlayerFire
+  SoundWaterPlayerButton: event:/User Interface/ChoosePlayerWater
+  SoundEarthPlayerButton: event:/User Interface/ChoosePlayerEarth
+  SoundAirPlayerButton: event:/User Interface/ChoosePlayerAir
 --- !u!114 &589856627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,6 +1009,11 @@ MonoBehaviour:
   playGameButton: {fileID: 422747457}
   choosePlayersButtons: {fileID: 875844312}
   sceneController: {fileID: 2134931075}
+  SoundPlayGameButton: event:/User Interface/PlayGameButton
+  SoundFirePlayerButton: event:/User Interface/ChoosePlayerFire
+  SoundWaterPlayerButton: event:/User Interface/ChoosePlayerWater
+  SoundEarthPlayerButton: event:/User Interface/ChoosePlayerEarth
+  SoundAirPlayerButton: event:/User Interface/ChoosePlayerAir
 --- !u!114 &1078648153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,6 +1339,11 @@ MonoBehaviour:
   playGameButton: {fileID: 422747457}
   choosePlayersButtons: {fileID: 875844312}
   sceneController: {fileID: 2134931075}
+  SoundPlayGameButton: event:/User Interface/PlayGameButton
+  SoundFirePlayerButton: event:/User Interface/ChoosePlayerFire
+  SoundWaterPlayerButton: event:/User Interface/ChoosePlayerWater
+  SoundEarthPlayerButton: event:/User Interface/ChoosePlayerEarth
+  SoundAirPlayerButton: event:/User Interface/ChoosePlayerAir
 --- !u!114 &1570945043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1563,6 +1583,11 @@ MonoBehaviour:
   playGameButton: {fileID: 422747457}
   choosePlayersButtons: {fileID: 875844312}
   sceneController: {fileID: 2134931075}
+  SoundPlayGameButton: event:/User Interface/PlayGameButton
+  SoundFirePlayerButton: event:/User Interface/ChoosePlayerFire
+  SoundWaterPlayerButton: event:/User Interface/ChoosePlayerWater
+  SoundEarthPlayerButton: event:/User Interface/ChoosePlayerEarth
+  SoundAirPlayerButton: event:/User Interface/ChoosePlayerAir
 --- !u!224 &1952072779
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1796,8 +1821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possiblePlayers:
-  - {fileID: 1434510357367822, guid: b9749399f0953bc48a493e71cfa226e7, type: 2}
-  - {fileID: 1933002404863728, guid: 00d70212b5f8d8345956781aa7e1f4c4, type: 2}
-  - {fileID: 1819894746071476, guid: 7546e15da8a87294ea901096898b8a70, type: 2}
-  - {fileID: 1866779294749694, guid: 175276d2eb9f25b4c90413b795fae795, type: 2}
+  - {fileID: 1015205651001018, guid: b9749399f0953bc48a493e71cfa226e7, type: 2}
+  - {fileID: 1836703320727974, guid: 00d70212b5f8d8345956781aa7e1f4c4, type: 2}
+  - {fileID: 1809389782346004, guid: 7546e15da8a87294ea901096898b8a70, type: 2}
+  - {fileID: 1680047720180192, guid: 175276d2eb9f25b4c90413b795fae795, type: 2}
   chosenPlayer: {fileID: 0}

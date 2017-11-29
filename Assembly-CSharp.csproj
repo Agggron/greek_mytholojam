@@ -51,12 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_Scripts\EnemyMovement.cs" />
-     <Compile Include="Assets\_Scripts\Footsteps.cs" />
-     <Compile Include="Assets\_Scripts\GameController.cs" />
-     <Compile Include="Assets\_Scripts\PlayerData.cs" />
-     <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\_Scripts\SceneController.cs" />
+     <Compile Include="Assets\_Scripts\Controllers\GameController.cs" />
+     <Compile Include="Assets\_Scripts\Controllers\SceneController.cs" />
+     <Compile Include="Assets\_Scripts\Enemy\EnemyAttack.cs" />
+     <Compile Include="Assets\_Scripts\Enemy\EnemyMovement.cs" />
+     <Compile Include="Assets\_Scripts\Player\Footsteps.cs" />
+     <Compile Include="Assets\_Scripts\Player\PlayerHealth.cs" />
+     <Compile Include="Assets\_Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\_Scripts\UIButtons.cs" />
      <None Include="Assets\FMOD\greekmytho_fmod\Metadata\AudioFile\{1df97108-3216-40f0-a748-f475690ce0b8}.xml" />
      <None Include="Assets\FMOD\greekmytho_fmod\Metadata\EncodingSetting\{221033bf-da60-448d-b2c8-b12c9607483a}.xml" />
