@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 54682998212511268}
   - component: {fileID: 114149483698479744}
   - component: {fileID: 114798318560380310}
-  - component: {fileID: 135402541390076032}
   - component: {fileID: 114682427716540076}
   m_Layer: 0
   m_Name: EarthPlayer
@@ -211,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff34fb231fe37f45a15dc316b73bf0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
   currentHealth: 0
 --- !u!114 &114798318560380310
 MonoBehaviour:
@@ -226,18 +226,6 @@ MonoBehaviour:
   inputsound: event:/Player/Footsteps
   playerismoving: 0
   walkingspeed: 0.5
---- !u!135 &135402541390076032
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1809389782346004}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.25
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136616252889940352
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -247,7 +235,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.75
+  m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
