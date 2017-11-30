@@ -146,7 +146,10 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.PlayerMovement
 8cc632c1d9d880ccebcfd32cc9d963fd Assembly-CSharp-firstpass.dll:FMODUnity.StudioParameterTrigger
-6e898d25f3965d228745370b6f7b47fc Assembly-CSharp.dll:.GameController
+6ca7c2aea18d8a3fff7cf935937ddb5a Assembly-CSharp.dll:.GameController
 a986563534313d35a3e4bc3cf9c7109d Assembly-CSharp.dll:.SceneController
 4b4cc5a055250c37c3d90973e6fb6759 Assembly-CSharp-firstpass.dll:FMODUnity.RuntimeManager
 9541343f9936f12f6a8a2f4d0bb837db Assembly-CSharp-firstpass.dll:FMODUnity.StudioBankLoader
+4454971040576413462b650cbb1a602b Assembly-CSharp.dll:.PlayerAttack
+56bab1248b7342213a5ae5f2969617f2 Assembly-CSharp.dll:.SwordAttack
+1c233a83767a0f6dd48011f0f133450c Assembly-CSharp.dll:.EnemyHealth

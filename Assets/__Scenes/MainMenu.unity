@@ -1821,8 +1821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possiblePlayers:
-  - {fileID: 1015205651001018, guid: b9749399f0953bc48a493e71cfa226e7, type: 2}
-  - {fileID: 1836703320727974, guid: 00d70212b5f8d8345956781aa7e1f4c4, type: 2}
-  - {fileID: 1809389782346004, guid: 7546e15da8a87294ea901096898b8a70, type: 2}
-  - {fileID: 1680047720180192, guid: 175276d2eb9f25b4c90413b795fae795, type: 2}
+  - {fileID: 1766762510278810, guid: b9749399f0953bc48a493e71cfa226e7, type: 2}
+  - {fileID: 1837934155379962, guid: 00d70212b5f8d8345956781aa7e1f4c4, type: 2}
+  - {fileID: 1931960100574146, guid: 7546e15da8a87294ea901096898b8a70, type: 2}
+  - {fileID: 1971172778186854, guid: 175276d2eb9f25b4c90413b795fae795, type: 2}
   chosenPlayer: {fileID: 0}

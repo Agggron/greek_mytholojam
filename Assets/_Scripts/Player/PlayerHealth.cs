@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour {
 	private GameController gameController;
 
 	PlayerMovement playerMovement;
+	PlayerAttack playerAttack;
 	public bool isDead;
 	public int currentHealth;
 
@@ -25,6 +26,7 @@ public class PlayerHealth : MonoBehaviour {
 		}
 			
 		playerMovement = GetComponent<PlayerMovement> ();
+		playerAttack = GetComponent<PlayerAttack> ();
 	}
 
 	void Start()
@@ -50,7 +52,8 @@ public class PlayerHealth : MonoBehaviour {
 	void PlayerDeath()
 	{
 		isDead = true;
-
+		gameController.playerIsDead = true;
 		playerMovement.enabled = false;
+		playerAttack.enabled = false;
 	}
 }

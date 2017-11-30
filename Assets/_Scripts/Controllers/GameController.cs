@@ -7,7 +7,9 @@ public class GameController : MonoBehaviour {
 
 	private SceneController sceneController;
 	public GameObject player;
-	public Transform spawnPoint;
+	public GameObject[] enemies;
+	public Transform playerSpawnPoint;
+	public Transform[] enemySpawnPoints;
 
 	public int playerStartingHealth = 100;
 	public int playerCurrentHealth;
@@ -18,6 +20,8 @@ public class GameController : MonoBehaviour {
 	public bool playerIsDamaged = false;
 	public Color playerDamagedColor;
 	public float damagedColorFadeSpeed;
+
+	public bool playerIsDead;
 
 	void Awake() 
 	{
@@ -30,22 +34,16 @@ public class GameController : MonoBehaviour {
 
 		if (player != null) 
 		{
-			Instantiate (player, spawnPoint.position, spawnPoint.rotation);
+			Instantiate (player, playerSpawnPoint.position, playerSpawnPoint.rotation);
 		}
 
 		playerCurrentHealth = playerStartingHealth;
 		playerIsDamaged = false;
 	}
 
-	public void SetGameProgress(int progress)
+	void Start()
 	{
-		gameProgressSlider.value = progress;
-	}
-
-	public void SetPlayerHealth (int health) 
-	{
-		playerCurrentHealth = health;
-		playerHealthSlider.value = health;
+		InvokeRepeating ("SpawnEnemy", 1.0f, 3.0f);
 	}
 
 	void Update() 
@@ -62,6 +60,25 @@ public class GameController : MonoBehaviour {
 		playerIsDamaged = false;
 	}
 
+	void SpawnEnemy() 
+	{
+		if (playerIsDead == false) 
+		{
+			GameObject enemy = enemies [Mathf.FloorToInt (Random.Range (0.0f, enemies.Length))];
+			Transform enemySpawnPoint = enemySpawnPoints [Mathf.FloorToInt (Random.Range (0.0f, enemySpawnPoints.Length))];
 
+			Instantiate (enemy, enemySpawnPoint.position, enemySpawnPoint.rotation);
+		}
+	}
 
+	public void SetGameProgress(int progress)
+	{
+		gameProgressSlider.value = progress;
+	}
+
+	public void SetPlayerHealth (int health) 
+	{
+		playerCurrentHealth = health;
+		playerHealthSlider.value = health;
+	}
 }

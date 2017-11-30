@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 195966847774621034}
   - component: {fileID: 114589368846114054}
   - component: {fileID: 114301423766528844}
+  - component: {fileID: 114514237454525180}
   m_Layer: 0
   m_Name: Titanling
   m_TagString: Enemy
@@ -218,6 +219,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0786f127a15653d4890bd7cf60779d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114514237454525180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1503606879689186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efa598b6015adb4094ab0c75abc7248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 10
+  currentHealth: 0
+  scoreValue: 10
 --- !u!114 &114589368846114054
 MonoBehaviour:
   m_ObjectHideFlags: 1
