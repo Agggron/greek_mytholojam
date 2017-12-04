@@ -1,84 +1,153 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-	private SceneController sceneController;
-	public GameObject player;
-	public GameObject[] enemies;
-	public Transform playerSpawnPoint;
-	public Transform[] enemySpawnPoints;
+	public static GameController instance;
 
-	public int playerStartingHealth = 100;
-	public int playerCurrentHealth;
+	private CanvasController canvasController;
 
-	public Slider gameProgressSlider;
+	public GameObject[] possiblePlayers;
+	public GameObject chosenPlayer;
+	public GameObject[] possibleEnemies;
+
+	public GameObject canvasMenu;
+	public GameObject canvasGame;
+	public enum CanvasType {Menu, Game};
+	public CanvasType currentCanvasType;
+
+	public int playerHealthMax = 100;
+	public int playerHealth;
 	public Slider playerHealthSlider;
-	public Image playerDamagedImage;
+	public int playerProgress;
+	public Slider playerProgressSlider;
+
 	public bool playerIsDamaged = false;
+	public Image playerDamagedImage;
 	public Color playerDamagedColor;
 	public float damagedColorFadeSpeed;
 
-	public bool playerIsDead;
+	public bool playerIsDead = false;
 
-	void Awake() 
+	void Awake ()
 	{
-		GameObject sceneControllerObject = GameObject.Find ("SceneController");
-		if (sceneControllerObject != null) 
+		if (instance == null) 
 		{
-			sceneController = sceneControllerObject.GetComponent<SceneController> ();
-			player = sceneController.chosenPlayer;
-		}
-
-		if (player != null) 
-		{
-			Instantiate (player, playerSpawnPoint.position, playerSpawnPoint.rotation);
-		}
-
-		playerCurrentHealth = playerStartingHealth;
-		playerIsDamaged = false;
-	}
-
-	void Start()
-	{
-		InvokeRepeating ("SpawnEnemy", 1.0f, 3.0f);
-	}
-
-	void Update() 
-	{
-		if (playerIsDamaged) 
-		{
-			playerDamagedImage.color = playerDamagedColor;
+			instance = this;
 		} 
-		else 
+
+		else if (instance != null) 
 		{
-			playerDamagedImage.color = Color.Lerp (playerDamagedImage.color, Color.clear, damagedColorFadeSpeed * Time.deltaTime);
+			Destroy (gameObject);
 		}
 
-		playerIsDamaged = false;
-	}
+		DontDestroyOnLoad (gameObject);
 
-	void SpawnEnemy() 
-	{
-		if (playerIsDead == false) 
-		{
-			GameObject enemy = enemies [Mathf.FloorToInt (Random.Range (0.0f, enemies.Length))];
-			Transform enemySpawnPoint = enemySpawnPoints [Mathf.FloorToInt (Random.Range (0.0f, enemySpawnPoints.Length))];
-
-			Instantiate (enemy, enemySpawnPoint.position, enemySpawnPoint.rotation);
+		GameObject canvasControllerObject = GameObject.FindGameObjectWithTag ("CanvasController");
+		if (canvasControllerObject != null) {
+			canvasController = canvasControllerObject.GetComponent<CanvasController> ();
+		} else {
+			Debug.Log ("Cannot find CanvasController script!");
 		}
 	}
 
-	public void SetGameProgress(int progress)
+	void Start ()
 	{
-		gameProgressSlider.value = progress;
+
+		currentCanvasType = CanvasType.Menu;
+		playerHealth = 0;
+		playerProgress = 0;
+		canvasController.SetUpDefault ();
+	}
+		
+	void Update()
+	{
+		if (Input.GetKeyDown (KeyCode.Escape)) 
+		{
+			StartMainMenuScene ();
+		}
+
+		if (currentCanvasType == CanvasType.Game) 
+		{
+			if (playerIsDamaged) 
+			{
+				playerDamagedImage.color = playerDamagedColor;
+			} 
+			else 
+			{
+				playerDamagedImage.color = Color.Lerp (playerDamagedImage.color, Color.clear, damagedColorFadeSpeed * Time.deltaTime);
+			}
+
+			playerIsDamaged = false;
+		}
+
+	}
+		
+	public void StartMainMenuScene ()
+	{
+		SceneManager.LoadScene ("MainMenu");
+		canvasMenu.SetActive (true);
+		canvasGame.SetActive (false);
+		currentCanvasType = CanvasType.Menu;
 	}
 
-	public void SetPlayerHealth (int health) 
+	public void StartAcropolisScene ()
 	{
-		playerCurrentHealth = health;
+		SetPlayerHealth(playerHealthMax);
+		SetPlayerProgress (0);
+		playerIsDead = false;
+
+		SceneManager.LoadScene ("Acropolis"); // Automatically starts AcropolisLevelController script
+		canvasMenu.SetActive (false);
+		canvasGame.SetActive (true);
+		currentCanvasType = CanvasType.Game;
+	}
+
+	public void StartParthenonScene ()
+	{
+		SceneManager.LoadScene ("Parthenon"); // Automatically starts ParthenonLevelController script
+		canvasMenu.SetActive (false);
+		canvasGame.SetActive (true);
+		currentCanvasType = CanvasType.Game;
+	}
+
+	public void SetPlayer (int playerNum) 
+	{
+		if (playerNum < possiblePlayers.Length)
+		{
+			chosenPlayer = possiblePlayers [playerNum];
+		}
+	}
+		
+	public void SetPlayerHealth (int health)
+	{
+		playerHealth = health;
 		playerHealthSlider.value = health;
+
+		if (playerHealth <= 0) {
+			StartMainMenuScene ();
+			canvasController.SetUpGameOver ();
+		}
 	}
+
+	public void SetPlayerProgress (int progress) 
+	{
+		playerProgress = progress;
+		playerProgressSlider.value = progress;
+
+		if ((playerProgress >= 100) && (playerProgress < 200))
+		{
+			StartParthenonScene ();
+		}
+
+		if (playerProgress >= 200) 
+		{
+			StartMainMenuScene ();
+			canvasController.SetUpGameWin ();
+		}
+	}
+
 }

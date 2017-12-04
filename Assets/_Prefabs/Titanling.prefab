@@ -232,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 10
   currentHealth: 0
-  scoreValue: 10
+  scoreValue: 50
 --- !u!114 &114589368846114054
 MonoBehaviour:
   m_ObjectHideFlags: 1

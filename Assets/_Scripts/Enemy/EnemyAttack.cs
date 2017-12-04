@@ -7,10 +7,25 @@ public class EnemyAttack : MonoBehaviour {
 	public float timeBetweenAttacks = 0.5f;
 	public int attackDamage = 10;
 
-	GameObject player;
-	PlayerHealth playerHealth;
+	private GameController gameController;
+	private GameObject player;
+	private PlayerHealth playerHealth;
+
 	bool playerInRangeOfAttack;
 	float attackTimer;
+
+	void Awake()
+	{
+		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		if (gameControllerObject != null) 
+		{
+			gameController = gameControllerObject.GetComponent<GameController> ();
+		} 
+		else 
+		{
+			Debug.Log ("Cannot find GameController script!");
+		}
+	}
 
 	void Start()
 	{
@@ -47,7 +62,7 @@ public class EnemyAttack : MonoBehaviour {
 	{
 		attackTimer = 0.0f;
 
-		if (playerHealth.currentHealth > 0) 
+		if (gameController.playerHealth > 0) 
 		{
 			playerHealth.TakeDamage (attackDamage);
 		}

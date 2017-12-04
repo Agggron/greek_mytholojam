@@ -6,12 +6,8 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour {
 
 	private GameController gameController;
-
-	PlayerMovement playerMovement;
-	PlayerAttack playerAttack;
-	public bool isDead;
-	public int currentHealth;
-
+	private PlayerMovement playerMovement;
+	private PlayerAttack playerAttack;
 
 	void Awake()
 	{
@@ -29,21 +25,14 @@ public class PlayerHealth : MonoBehaviour {
 		playerAttack = GetComponent<PlayerAttack> ();
 	}
 
-	void Start()
-	{
-		currentHealth = gameController.playerCurrentHealth;
-	}
-		
-
 	public void TakeDamage (int damage) 
 	{
-		currentHealth -= damage;
-
-		gameController.SetPlayerHealth (currentHealth);
+		int newHealth = gameController.playerHealth - damage;
+		gameController.SetPlayerHealth (newHealth);
 
 		gameController.playerIsDamaged = true;
 
-		if ((currentHealth <= 0) && (isDead == false)) 
+		if ((gameController.playerHealth <= 0) && (gameController.playerIsDead == false)) 
 		{
 			PlayerDeath ();
 		}
@@ -51,7 +40,6 @@ public class PlayerHealth : MonoBehaviour {
 
 	void PlayerDeath()
 	{
-		isDead = true;
 		gameController.playerIsDead = true;
 		playerMovement.enabled = false;
 		playerAttack.enabled = false;

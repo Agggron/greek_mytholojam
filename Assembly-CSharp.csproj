@@ -52,8 +52,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_Scripts\CameraMovement.cs" />
+     <Compile Include="Assets\_Scripts\Controllers\AcropolisLevelController.cs" />
+     <Compile Include="Assets\_Scripts\Controllers\CanvasController.cs" />
+     <Compile Include="Assets\_Scripts\Controllers\EventSystemController.cs" />
      <Compile Include="Assets\_Scripts\Controllers\GameController.cs" />
-     <Compile Include="Assets\_Scripts\Controllers\SceneController.cs" />
+     <Compile Include="Assets\_Scripts\Controllers\ParthenonLevelController.cs" />
      <Compile Include="Assets\_Scripts\Enemy\EnemyAttack.cs" />
      <Compile Include="Assets\_Scripts\Enemy\EnemyHealth.cs" />
      <Compile Include="Assets\_Scripts\Enemy\EnemyMovement.cs" />

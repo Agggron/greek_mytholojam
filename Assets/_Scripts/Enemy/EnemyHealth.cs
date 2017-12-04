@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	public int startingHealth = 10;
 	public int currentHealth;
-	public int scoreValue = 10;
+	public int scoreValue = 20;
 
 	bool isDead;
 
@@ -45,7 +45,7 @@ public class EnemyHealth : MonoBehaviour {
 	void Death() 
 	{
 		isDead = true;
-		gameController.SetGameProgress (Mathf.RoundToInt(gameController.gameProgressSlider.value + scoreValue));
+		gameController.SetPlayerProgress (Mathf.RoundToInt(gameController.playerProgressSlider.value + scoreValue));
 		Destroy (this.gameObject);
 	}
 }

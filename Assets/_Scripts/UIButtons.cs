@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIButtons : MonoBehaviour {
 
+	private GameController gameController;
+	private CanvasController canvasController;
+
 	public GameObject playGameButton;
 	public GameObject choosePlayersButtons;
-	public SceneController sceneController;
+	public GameObject mainMenuButton;
+
+	public Text title;
+	public Text gameWinText;
+	public Text gameOverText;
+
 
 	[FMODUnity.EventRef]
 	public string SoundPlayGameButton;
@@ -22,17 +31,25 @@ public class UIButtons : MonoBehaviour {
 
 	void Awake() 
 	{
-		GameObject sceneControllerObject = GameObject.Find ("SceneController");
-		if (sceneControllerObject != null) 
-		{
-			sceneController = sceneControllerObject.GetComponent<SceneController> ();
+		GameObject gameControllerObject = GameObject.Find ("GameController");
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent<GameController> ();
+		} else {
+			Debug.Log ("Cannot find GameController script!");
+		}
+
+		GameObject canvasControllerObject = GameObject.FindGameObjectWithTag ("CanvasController");
+		if (canvasControllerObject != null) {
+			canvasController = canvasControllerObject.GetComponent<CanvasController> ();
+		} else {
+			Debug.Log ("Cannot find CanvasController script!");
 		}
 	}
 
 	public void PressPlayGameButton() 
 	{
-		playGameButton.SetActive (false);
-		choosePlayersButtons.SetActive (true);
+		canvasController.SetUpChoosePlayer ();
+
 		FMODUnity.RuntimeManager.PlayOneShot (SoundPlayGameButton, playGameButton.gameObject.transform.position);
 	}
 
@@ -53,7 +70,12 @@ public class UIButtons : MonoBehaviour {
 				FMODUnity.RuntimeManager.PlayOneShot (SoundAirPlayerButton, playGameButton.gameObject.transform.position);
 				break;
 		}
-		sceneController.SetPlayer (playerChoice);
-		SceneManager.LoadScene ("Game");
+		gameController.SetPlayer (playerChoice);
+		gameController.StartAcropolisScene ();
+	}
+
+	public void PressMainMenuButton ()
+	{
+		canvasController.SetUpDefault ();
 	}
 }

@@ -9,29 +9,28 @@ public class Footsteps : MonoBehaviour {
 	public bool playerismoving;
 	public float walkingspeed;
 
-	PlayerHealth playerHealth;
+	private GameController gameController;
+	private PlayerHealth playerHealth;
 
 	void Awake()
 	{
+		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		if (gameControllerObject != null) 
+		{
+			gameController = gameControllerObject.GetComponent<GameController> ();
+		} 
+		else 
+		{
+			Debug.Log ("Cannot find GameController script!");
+		}
+
 		playerHealth = GetComponent<PlayerHealth> ();
 	}
-	/*void update ()
-	{
-		if (Input.GetAxis ("Vertical") >= 0.01f || Input.GetAxis ("Horizontal") >= 0.01f || Input.GetAxis ("Vertical") <= 0.01f || Input.GetAxis ("Horizontal") <= 0.01f)
-		{
-			//Debug.Log ("Player is moving");
-			playerismoving = true;
-		} 
-		else if (Input.GetAxis ("Vertical") == 0 || Input.GetAxis ("Horizontal") == 0)
-		{
-			//Debug.Log ("Player is not moving");
-			playerismoving = false;
-		}
-	}*/
+		
 
 	void CallFootsteps ()
 	{
-		if ((playerHealth.isDead == false) && (playerismoving == true))
+		if ((gameController.playerIsDead == false) && (playerismoving == true))
 		{
 			FMODUnity.RuntimeManager.PlayOneShot (inputsound);
 		}
