@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy
   - CanvasController
+  - MainMenuController
+  - AcropolisController
+  - ParthenonController
+  - SceneController
+  - GameUIController
   layers:
   - Default
   - TransparentFX

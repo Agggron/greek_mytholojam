@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour {
 
-	private GameController gameController;
 	private GameObject player;
 	private Transform playerLocation;
 	private PlayerHealth playerHealth;
@@ -13,28 +12,25 @@ public class EnemyMovement : MonoBehaviour {
 
 	void Awake()
 	{
-		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		if (gameControllerObject != null) 
-		{
-			gameController = gameControllerObject.GetComponent<GameController> ();
-		} 
-		else 
-		{
-			Debug.Log ("Cannot find GameController script!");
+		GameObject playerObject = GameObject.FindGameObjectWithTag ("Player");
+		if (playerObject != null) {
+			player = playerObject;
+			playerLocation = player.transform;
+			playerHealth = playerObject.GetComponent<PlayerHealth> ();
+		} else {
+			Debug.Log ("Cannot find Player and/or its scripts!");
 		}
+
+		nav = GetComponent<NavMeshAgent> ();
 	}
 
 	void Start()
 	{
-		player = GameObject.FindGameObjectWithTag ("Player");
-		playerLocation = player.transform;
-		playerHealth = player.GetComponent<PlayerHealth> ();
-		nav = GetComponent<NavMeshAgent> ();
 	}
 
 	void Update()
 	{
-		if (gameController.playerIsDead == false) 
+		if (!playerHealth.playerIsDead) 
 		{
 			// Sets destination of enemy to a (1.25 unit) radius around the player's position
 			Vector3 directionFromPlayer = 1.25f * Vector3.Normalize (gameObject.transform.position - playerLocation.position);

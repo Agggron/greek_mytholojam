@@ -1,30 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAttack : MonoBehaviour {
 
-	public float timeBetweenAttacks = 0.5f;
-	public int attackDamage = 10;
-
-	private GameController gameController;
 	private GameObject player;
 	private PlayerHealth playerHealth;
+	private Animator anim;
+	private NavMeshAgent nav;
 
-	bool playerInRangeOfAttack;
-	float attackTimer;
+	public bool isAttacking;
+
+	public float timeBetweenAttacks = 5.0f;
+	public int attackDamage = 10;
+	public float distanceFromPlayer;
+	public float attackRangeMin = 2.0f;
+	public float attackRangeMax = 4.0f;
+	public float attackTimer;
+	public float timeBetweenDamageInstances = 0.5f;
+	public float damageTimer;
 
 	void Awake()
 	{
-		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		if (gameControllerObject != null) 
-		{
-			gameController = gameControllerObject.GetComponent<GameController> ();
-		} 
-		else 
-		{
-			Debug.Log ("Cannot find GameController script!");
+		GameObject playerObject = GameObject.FindGameObjectWithTag ("Player");
+		if (playerObject != null) {
+			player = playerObject;
+			playerHealth = player.GetComponent<PlayerHealth> ();
+		} else {
+			Debug.Log ("Cannot find Player and/or its scripts!");
 		}
+
+
+		anim = GetComponentInChildren<Animator> ();
+		nav = GetComponent<NavMeshAgent> ();
 	}
 
 	void Start()
@@ -33,39 +42,39 @@ public class EnemyAttack : MonoBehaviour {
 		playerHealth = player.GetComponent<PlayerHealth> ();
 	}
 
-	void OnTriggerEnter(Collider other) 
+	void Update ()
 	{
-		if (other.gameObject == player) 
+		attackTimer += Time.deltaTime;
+		damageTimer += Time.deltaTime;
+
+		distanceFromPlayer = Vector3.Distance (player.transform.position, transform.position);
+		if ((playerHealth.playerIsDead == false) && (isAttacking == false) && (distanceFromPlayer >= attackRangeMin)
+			&& (distanceFromPlayer <= attackRangeMax) && (attackTimer >= timeBetweenAttacks))
 		{
-			playerInRangeOfAttack = true;
-		}
-	}
-
-	void OnTriggerExit (Collider other)
-	{
-		if (other.gameObject == player) 
-		{
-			playerInRangeOfAttack = false;
-		}
-	}
-
-	void Update() 
-	{
-		attackTimer = attackTimer + Time.deltaTime;
-
-		if ((attackTimer > timeBetweenAttacks) && (playerInRangeOfAttack)) {
 			Attack ();
 		}
 	}
 
-	void Attack()
+	void Attack ()
 	{
-		attackTimer = 0.0f;
+		isAttacking = true;
+		nav.isStopped = true;
+		anim.SetTrigger ("titanlingBasicAttack");
+	}
 
-		if (gameController.playerHealth > 0) 
+	public void AttackDone ()
+	{
+		isAttacking = false;
+		attackTimer = 0.0f;
+		nav.isStopped = false;
+	}
+
+	void OnTriggerStay(Collider other) 
+	{
+		if ((damageTimer >= timeBetweenDamageInstances) && (other.gameObject == player))
 		{
+			damageTimer = 0.0f;
 			playerHealth.TakeDamage (attackDamage);
 		}
 	}
-
 }

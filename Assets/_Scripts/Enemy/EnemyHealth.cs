@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
 
-	private GameController gameController;
+	private GameUIController gameUIController;
 
 	public int startingHealth = 10;
 	public int currentHealth;
-	public int scoreValue = 20;
+	public int scoreValue = 10;
 
-	bool isDead;
+	public bool isDead;
 
 	void Awake()
 	{
-		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		if (gameControllerObject != null) 
-		{
-			gameController = gameControllerObject.GetComponent<GameController> ();
-		} 
-		else 
-		{
-			Debug.Log ("Cannot find GameController script!");
+		GameObject gameUIControllerObject = GameObject.FindGameObjectWithTag ("GameUIController");
+		if (gameUIControllerObject != null) {
+			gameUIController = gameUIControllerObject.GetComponent<GameUIController> ();
+		} else {
+			Debug.Log ("Cannot find GameUIController script!");
 		}
 	}
 
@@ -45,7 +42,7 @@ public class EnemyHealth : MonoBehaviour {
 	void Death() 
 	{
 		isDead = true;
-		gameController.SetPlayerProgress (Mathf.RoundToInt(gameController.playerProgressSlider.value + scoreValue));
+		gameUIController.SetPlayerProgress (PlayerData.progress + scoreValue);
 		Destroy (this.gameObject);
 	}
 }

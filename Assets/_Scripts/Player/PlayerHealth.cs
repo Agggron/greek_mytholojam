@@ -5,34 +5,52 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
 
-	private GameController gameController;
+	private GameUIController gameUIController;
 	private PlayerMovement playerMovement;
 	private PlayerAttack playerAttack;
 
-	void Awake()
+	public GameObject PDATA_player;
+	public int PDATA_health;
+	public int PDATA_progress;
+
+	public bool playerIsDamaged;
+	public bool playerIsDead;
+
+	void Awake () 
 	{
-		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		if (gameControllerObject != null) 
-		{
-			gameController = gameControllerObject.GetComponent<GameController> ();
-		} 
-		else 
-		{
-			Debug.Log ("Cannot find GameController script!");
+		GameObject gameUIControllerObject = GameObject.FindGameObjectWithTag ("GameUIController");
+		if (gameUIControllerObject != null) {
+			gameUIController = gameUIControllerObject.GetComponent<GameUIController> ();
+		} else {
+			Debug.Log ("Cannot find GameUIController script!");
 		}
-			
+
 		playerMovement = GetComponent<PlayerMovement> ();
 		playerAttack = GetComponent<PlayerAttack> ();
 	}
 
+	void Start ()
+	{
+		PDATA_player = PlayerData.player;
+		PDATA_health = PlayerData.health;
+		PDATA_progress = PlayerData.progress;
+
+		playerIsDamaged = false;
+		playerIsDead = false;
+
+
+	}
+
 	public void TakeDamage (int damage) 
 	{
-		int newHealth = gameController.playerHealth - damage;
-		gameController.SetPlayerHealth (newHealth);
+		int newHealth = PlayerData.health - damage;
 
-		gameController.playerIsDamaged = true;
+		PlayerData.health = newHealth;
+		gameUIController.SetPlayerHealth (newHealth);
 
-		if ((gameController.playerHealth <= 0) && (gameController.playerIsDead == false)) 
+		playerIsDamaged = true;
+
+		if ((PlayerData.health <= 0) && (!playerIsDead)) 
 		{
 			PlayerDeath ();
 		}
@@ -40,7 +58,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	void PlayerDeath()
 	{
-		gameController.playerIsDead = true;
+		playerIsDead = true;
 		playerMovement.enabled = false;
 		playerAttack.enabled = false;
 	}

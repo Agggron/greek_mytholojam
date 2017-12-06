@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-	public float speed = 5.0f;
+	private PlayerFootsteps playerFootsteps;
 	private Rigidbody rb;
 	private Vector3 movement;
-	private int groundMask;
-	private float cameraRayLength = 100.0f;
-	private Footsteps footsteps;
+
+	public float speed = 5.0f;
 
 	void Awake() 
 	{
+		playerFootsteps = GetComponent<PlayerFootsteps> ();
 		rb = GetComponent<Rigidbody> ();
-		groundMask = LayerMask.GetMask ("Ground");
-		footsteps = GetComponent<Footsteps> ();
 	}
 
 	void FixedUpdate() 
@@ -26,7 +24,7 @@ public class PlayerMovement : MonoBehaviour {
 		// if there is any movement in horizontal or vertical
 		if ((Mathf.RoundToInt (horizontal) != 0) || (Mathf.RoundToInt (vertical) != 0)) 
 		{
-			footsteps.playerismoving = true;
+			playerFootsteps.playerIsMoving = true;
 
 			Move (horizontal, vertical);
 
@@ -34,7 +32,7 @@ public class PlayerMovement : MonoBehaviour {
 		} 
 		else 
 		{
-			footsteps.playerismoving = false;
+			playerFootsteps.playerIsMoving = false;
 		}
 	}
 
