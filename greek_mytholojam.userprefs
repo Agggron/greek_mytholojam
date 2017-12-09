@@ -1,10 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\Enemy\EnemyAttack.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\Controllers\GameUIController.cs">
     <Files>
-      <File FileName="Assets\_Scripts\Enemy\EnemyAttack.cs" Line="44" Column="6" />
+      <File FileName="Assets\_Scripts\Enemy\EnemyAttack.cs" Line="52" Column="85" />
       <File FileName="Assets\_Scripts\Enemy\EnemyHealth.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Scripts\Enemy\EnemyMovement.cs" Line="24" Column="39" />
+      <File FileName="Assets\_Scripts\Enemy\EnemyMovement.cs" Line="3" Column="19" />
+      <File FileName="Assets\_Scripts\Player\PlayerAttack.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Player\SwordAttack.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Enemy\TitanlingAnimations.cs" Line="17" Column="51" />
+      <File FileName="Assets\_Scripts\Player\PlayerHealth.cs" Line="37" Column="3" />
+      <File FileName="Assets\_Scripts\Controllers\AcropolisController.cs" Line="98" Column="34" />
+      <File FileName="Assets\_Scripts\Controllers\SceneController.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Controllers\GameUIController.cs" Line="31" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
