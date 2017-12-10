@@ -38,6 +38,16 @@ public class PlayerAttack : MonoBehaviour {
 		{
 			PlayerBoulderSmash ();
 		}
+
+		if ((Input.GetKeyDown (KeyCode.C)) && (playerIsAttacking == false) && (specialAttackTimer > timeBetweenSpecialAttack)) 
+		{
+			PlayerWaterDash ();
+		}
+
+		if ((Input.GetKeyDown (KeyCode.V)) && (playerIsAttacking == false) && (specialAttackTimer > timeBetweenSpecialAttack)) 
+		{
+			PlayerInfernoRage ();
+		}
 	}
 
 	void PlayerBasicAttack() 
@@ -52,5 +62,16 @@ public class PlayerAttack : MonoBehaviour {
 		anim.SetTrigger ("boulderSmash");
 	}
 
+	void PlayerWaterDash ()
+	{
+		specialAttackTimer = 0.0f;
+		anim.SetTrigger ("waterDash");
+	}
+
+	void PlayerInfernoRage ()
+	{
+		specialAttackTimer = 0.0f;
+		anim.SetTrigger ("infernoRage");
+	}
 
 }

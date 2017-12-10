@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeroAnimations : MonoBehaviour {
 
+	public Transform hero;
 	public Transform sword;
 	private PlayerMovement playerMovement;
 
@@ -11,6 +12,7 @@ public class HeroAnimations : MonoBehaviour {
 	{
 		playerMovement = GetComponentInParent<PlayerMovement> ();
 	}
+		
 
 	void FreezeMovementStart ()
 	{
@@ -30,5 +32,10 @@ public class HeroAnimations : MonoBehaviour {
 	void PlayerAttackSwingEnd ()
 	{
 		sword.GetComponent<SwordAttack> ().isAttacking = false;
+	}
+
+	void WaterDashAnimationEnd ()
+	{
+		hero.position = transform.position;
 	}
 }
