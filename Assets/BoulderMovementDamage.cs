@@ -12,6 +12,8 @@ public class BoulderMovementDamage : MonoBehaviour {
 	public int boulderDamage = 10;
 	public bool isShooting = false;
 
+	public Vector3 target;
+
 	private GameObject player;
 	private Animator anim;
 	private MeshRenderer meshRenderer;
@@ -37,16 +39,9 @@ public class BoulderMovementDamage : MonoBehaviour {
 	{
 		if (isShooting) 
 		{
-			Vector3 target = new Vector3 (0.0f, 0.0f, 0.0f);
-
 			if (boulderUser == BoulderUser.Player) 
 			{
 				target = transform.position + transform.forward;
-			}
-
-			if (boulderUser == BoulderUser.StoneGolem) 
-			{
-				target = player.transform.position;
 			}
 	
 			transform.position = Vector3.MoveTowards (transform.position, target, speed * Time.deltaTime);
@@ -56,6 +51,11 @@ public class BoulderMovementDamage : MonoBehaviour {
 	public void ShootBoulder () 
 	{
 		isShooting = true;
+
+		if (boulderUser == BoulderUser.StoneGolem) 
+		{
+			target = player.transform.position + new Vector3 (0.0f, 0.25f, 0.0f);
+		}
 	}
 
 	void OnTriggerStay(Collider other) 

@@ -120,7 +120,7 @@ public class EnemyAttack : MonoBehaviour {
 
 	void OnTriggerStay(Collider other) 
 	{
-		if ((damageTimer >= timeBetweenDamageInstances) && (other.gameObject == player))
+		if ((!enemyHealth.isDead) && (damageTimer >= timeBetweenDamageInstances) && (other.gameObject == player))
 		{
 			damageTimer = 0.0f;
 			playerHealth.TakeDamage (attackDamage);
