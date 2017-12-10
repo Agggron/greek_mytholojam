@@ -12,16 +12,13 @@ public class PlayerAttack : MonoBehaviour {
 	public float timeBetweenBasicAttack = 1.0f;
 	public float basicAttackTimer;
 
+	public float timeBetweenSpecialAttack = 1.0f;
+	public float specialAttackTimer;
+
 
 	void Awake()
 	{
-		anim = GetComponent<Animator> ();
-
-		sword = gameObject.transform.Find ("Sword");
-		if (sword == null) 
-		{
-			Debug.Log ("PlayerAttack script cannot find child object 'Sword'");
-		}
+		anim = GetComponentInChildren<Animator> ();
 
 		playerIsAttacking = false;
 		basicAttackTimer = 0.0f;
@@ -30,26 +27,30 @@ public class PlayerAttack : MonoBehaviour {
 	void Update() 
 	{
 		basicAttackTimer += Time.deltaTime;
+		specialAttackTimer += Time.deltaTime;
 			
-		if ((Input.GetKeyDown (KeyCode.Space)) && (playerIsAttacking == false) && (basicAttackTimer > timeBetweenBasicAttack)) 
+		if ((Input.GetKeyDown (KeyCode.Z)) && (playerIsAttacking == false) && (basicAttackTimer > timeBetweenBasicAttack)) 
 		{
 			PlayerBasicAttack ();
+		}
+
+		if ((Input.GetKeyDown (KeyCode.X)) && (playerIsAttacking == false) && (specialAttackTimer > timeBetweenSpecialAttack)) 
+		{
+			PlayerBoulderSmash ();
 		}
 	}
 
 	void PlayerBasicAttack() 
 	{
 		basicAttackTimer = 0.0f;
-		anim.SetTrigger ("playerBasicAttack");
+		anim.SetTrigger ("playerAttack");
 	}
 
-	void PlayerBasicAttackSwingStart()
+	void PlayerBoulderSmash ()
 	{
-		sword.GetComponent<SwordAttack> ().isAttacking = true;
+		specialAttackTimer = 0.0f;
+		anim.SetTrigger ("boulderSmash");
 	}
 
-	void PlayerBasicAttackSwingEnd()
-	{
-		sword.GetComponent<SwordAttack> ().isAttacking = false;
-	}
+
 }

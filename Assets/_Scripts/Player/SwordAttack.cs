@@ -5,12 +5,7 @@ using UnityEngine;
 public class SwordAttack : MonoBehaviour {
 
 	public bool isAttacking;
-	public int swordAttackDamage;
-
-	void Start()
-	{
-		swordAttackDamage = transform.parent.GetComponent<PlayerAttack> ().basicAttackDamage;
-	}
+	public int swordAttackDamage = 10;
 
 	void OnTriggerStay(Collider other) 
 	{
