@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efa598b6015adb4094ab0c75abc7248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
   startingHealth: 10
   currentHealth: 0
   scoreValue: 10

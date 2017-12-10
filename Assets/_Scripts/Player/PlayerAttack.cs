@@ -6,7 +6,9 @@ public class PlayerAttack : MonoBehaviour {
 
 	public bool playerIsAttacking;
 	public Animator anim;
-	private Transform sword;
+
+	public GameObject boulder;
+	public Transform boulderSpawnPoint;
 
 	public int basicAttackDamage = 10;
 	public float timeBetweenBasicAttack = 1.0f;
@@ -60,6 +62,8 @@ public class PlayerAttack : MonoBehaviour {
 	{
 		specialAttackTimer = 0.0f;
 		anim.SetTrigger ("boulderSmash");
+		GameObject newBoulder = Instantiate (boulder, boulderSpawnPoint.position, transform.rotation);
+		newBoulder.GetComponent<BoulderMovementDamage> ().ShootBoulder ();
 	}
 
 	void PlayerWaterDash ()

@@ -65,8 +65,16 @@ public class EnemyHealth : MonoBehaviour {
 
 	void Death() 
 	{
+		nav.isStopped = true;
 		isDead = true;
 		gameUIController.SetPlayerProgress (PlayerData.progress + scoreValue);
-		Destroy (this.gameObject);
+
+		if (enemyType == EnemyType.StoneGolem) {
+			anim.SetTrigger ("stoneGolemDeath");
+			Destroy (gameObject, 5.0f);
+
+		} else {
+			Destroy (this.gameObject);
+		}
 	}
 }

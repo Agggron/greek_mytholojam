@@ -12,6 +12,7 @@ TagManager:
   - SceneController
   - GameUIController
   - PlayerLocationForCamera
+  - Environment
   layers:
   - Default
   - TransparentFX
