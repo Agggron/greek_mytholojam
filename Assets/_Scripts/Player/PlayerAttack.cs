@@ -60,9 +60,10 @@ public class PlayerAttack : MonoBehaviour {
 
 	void PlayerBoulderSmash ()
 	{
+		boulderSpawnPoint.rotation = transform.rotation;
 		specialAttackTimer = 0.0f;
 		anim.SetTrigger ("boulderSmash");
-		GameObject newBoulder = Instantiate (boulder, boulderSpawnPoint.position, transform.rotation);
+		GameObject newBoulder = Instantiate (boulder, boulderSpawnPoint.position, boulderSpawnPoint.rotation);
 		newBoulder.GetComponent<BoulderMovementDamage> ().ShootBoulder ();
 	}
 

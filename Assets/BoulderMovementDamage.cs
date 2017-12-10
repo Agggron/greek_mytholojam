@@ -8,6 +8,15 @@ public class BoulderMovementDamage : MonoBehaviour {
 	public int boulderDamage = 10;
 	public bool isShooting = false;
 
+	private Animator anim;
+	private MeshRenderer meshRenderer;
+
+	void Awake ()
+	{
+		anim = GetComponent<Animator>();
+		meshRenderer = GetComponent<MeshRenderer> ();
+	}
+
 	void Start ()
 	{
 	}
@@ -34,14 +43,23 @@ public class BoulderMovementDamage : MonoBehaviour {
 			{
 				EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
 				enemyHealth.TakeDamage (boulderDamage);
-				Destroy (gameObject);
+				anim.SetTrigger ("boulderSplinter");
+				isShooting = false;
+				meshRenderer.enabled = false;
 			}
 
 			if (other.gameObject.CompareTag ("Environment")) 
 			{
-				Destroy (gameObject);
+				anim.SetTrigger ("boulderSplinter");
+				isShooting = false;
+				meshRenderer.enabled = false;
 			}
 
 		}
+	}
+
+	public void DestroyBoulderAndShards ()
+	{
+		Destroy (gameObject);
 	}
 }
