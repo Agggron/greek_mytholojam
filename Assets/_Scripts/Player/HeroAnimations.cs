@@ -7,10 +7,12 @@ public class HeroAnimations : MonoBehaviour {
 	public Transform hero;
 	public Transform sword;
 	private PlayerMovement playerMovement;
+	private PlayerHealth playerHealth;
 
 	void Awake ()
 	{
 		playerMovement = GetComponentInParent<PlayerMovement> ();
+		playerHealth = GetComponentInParent<PlayerHealth> ();
 	}
 		
 
@@ -34,8 +36,14 @@ public class HeroAnimations : MonoBehaviour {
 		sword.GetComponent<SwordAttack> ().isAttacking = false;
 	}
 
+	void WaterDashAnimationStart ()
+	{
+		playerHealth.playerInvulnerable = PlayerHealth.PlayerInvulnerable.Yes;
+	}
+
 	void WaterDashAnimationEnd ()
 	{
+		playerHealth.playerInvulnerable = PlayerHealth.PlayerInvulnerable.No;
 		hero.position = transform.position;
 	}
 }

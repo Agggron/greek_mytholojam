@@ -9,6 +9,9 @@ public class PlayerHealth : MonoBehaviour {
 	private PlayerMovement playerMovement;
 	private PlayerAttack playerAttack;
 
+	public enum PlayerInvulnerable {Yes, No};
+	public PlayerInvulnerable playerInvulnerable = PlayerInvulnerable.No;
+
 	public GameObject PDATA_player;
 	public int PDATA_health;
 	public int PDATA_progress;
@@ -50,6 +53,11 @@ public class PlayerHealth : MonoBehaviour {
 
 	public void TakeDamage (int damage) 
 	{
+		if (playerInvulnerable == PlayerInvulnerable.Yes) 
+		{
+			return;
+		}
+
 		int newHealth = PlayerData.health - damage;
 
 		PlayerData.health = newHealth;
