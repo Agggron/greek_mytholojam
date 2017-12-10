@@ -67,10 +67,13 @@ public class AcropolisController : MonoBehaviour {
 	{
 		if (playerHealth.playerIsDead == false)
 		{
-			GameObject enemy = enemies [Mathf.FloorToInt (Random.Range (0.0f, enemies.Length))];
-			Transform enemySpawnPoint = enemySpawnPoints [Mathf.FloorToInt (Random.Range (0.0f, enemySpawnPoints.Length))];
+			if ((enemies.Length != 0) && (enemySpawnPoints.Length != 0)) 
+			{
+				GameObject enemy = enemies [Mathf.FloorToInt (Random.Range (0.0f, enemies.Length))];
+				Transform enemySpawnPoint = enemySpawnPoints [Mathf.FloorToInt (Random.Range (0.0f, enemySpawnPoints.Length))];
 
-			Instantiate (enemy, enemySpawnPoint.position, enemySpawnPoint.rotation);
+				Instantiate (enemy, enemySpawnPoint.position, enemySpawnPoint.rotation);
+			}
 		}
 	}
 

@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour {
 	private Transform playerLocation;
 	private PlayerHealth playerHealth;
 	private NavMeshAgent nav;
+	private Animator anim;
 
 	void Awake()
 	{
@@ -22,19 +23,31 @@ public class EnemyMovement : MonoBehaviour {
 		}
 
 		nav = GetComponent<NavMeshAgent> ();
+		anim = GetComponentInChildren<Animator> ();
 	}
 
 	void Start()
 	{
+		anim.SetBool ("isRunning", true);
 	}
 
 	void Update()
 	{
 		if (!playerHealth.playerIsDead) 
 		{
-			// Sets destination of enemy to a (1.25 unit) radius around the player's position
-			Vector3 directionFromPlayer = 1.25f * Vector3.Normalize (gameObject.transform.position - playerLocation.position);
-			nav.SetDestination (playerLocation.position + directionFromPlayer);
+			if (!nav.isStopped) 
+			{
+				if (anim.GetBool ("isRunning") == false) {
+					//anim.SetBool ("isRunning", true);
+				}
+				// Sets destination of enemy to a (1.25 unit) radius around the player's position
+				Vector3 directionFromPlayer = 1.25f * Vector3.Normalize (gameObject.transform.position - playerLocation.position);
+				nav.SetDestination (playerLocation.position + directionFromPlayer);
+			} 
+			else 
+			{
+				//anim.SetBool ("isRunning", false);
+			}
 		}
 	}
 }

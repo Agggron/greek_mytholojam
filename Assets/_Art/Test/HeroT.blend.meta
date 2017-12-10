@@ -1,0 +1,189 @@
+fileFormatVersion: 2
+guid: 2cb1372a3bbb98947885c2a42919af3e
+timeCreated: 1512869536
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Chest
+    100004: Cube
+    100006: Cube_001
+    100008: Finger02_L
+    100010: Finger02_R
+    100012: Fingers01_L
+    100014: Fingers01_R
+    100016: Foot_L
+    100018: Foot_R
+    100020: Hand_L
+    100022: Hand_R
+    100024: Head
+    100026: //RootNode
+    100028: Hips
+    100030: Leg_IK_L
+    100032: Leg_IK_R
+    100034: Lower_Arm_L
+    100036: Lower_Arm_R
+    100038: Lower_Leg_L
+    100040: Lower_Leg_R
+    100042: Neck
+    100044: Pants
+    100046: Shoulder_L
+    100048: Shoulder_R
+    100050: Spine
+    100052: Sword
+    100054: Thumb01_L
+    100056: Thumb01_R
+    100058: Thumb02_L
+    100060: Thumb02_R
+    100062: Toes_L
+    100064: Toes_R
+    100066: Upper_Arm_L
+    100068: Upper_Arm_R
+    100070: Upper_Leg_L
+    100072: Upper_Leg_R
+    400000: Armature
+    400002: Chest
+    400004: Cube
+    400006: Cube_001
+    400008: Finger02_L
+    400010: Finger02_R
+    400012: Fingers01_L
+    400014: Fingers01_R
+    400016: Foot_L
+    400018: Foot_R
+    400020: Hand_L
+    400022: Hand_R
+    400024: Head
+    400026: //RootNode
+    400028: Hips
+    400030: Leg_IK_L
+    400032: Leg_IK_R
+    400034: Lower_Arm_L
+    400036: Lower_Arm_R
+    400038: Lower_Leg_L
+    400040: Lower_Leg_R
+    400042: Neck
+    400044: Pants
+    400046: Shoulder_L
+    400048: Shoulder_R
+    400050: Spine
+    400052: Sword
+    400054: Thumb01_L
+    400056: Thumb01_R
+    400058: Thumb02_L
+    400060: Thumb02_R
+    400062: Toes_L
+    400064: Toes_R
+    400066: Upper_Arm_L
+    400068: Upper_Arm_R
+    400070: Upper_Leg_L
+    400072: Upper_Leg_R
+    2300000: Cube_001
+    3300000: Cube_001
+    4300000: Pants
+    4300002: Cube
+    4300004: Cube_001
+    7400000: Default Take
+    7400002: ArmatureAction_001
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Pants
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frozen-Steel_001
+    second: {fileID: 2100000, guid: 64c28016188868e48bd633a983719a8c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants
+    second: {fileID: 2100000, guid: d9a71502a9edb7c4485c0221ccf4cefd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: 1d30fa34cc9e6c344a3d0756b2fbb5c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Steel_001
+    second: {fileID: 2100000, guid: f0e2cae4918926844bd4919c49d60aeb, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

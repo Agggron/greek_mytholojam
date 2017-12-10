@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyAttack : MonoBehaviour {
 
+	public enum EnemyType {Titanling, StoneGolem, Titan};
+	public EnemyType enemyType = EnemyType.StoneGolem;
+
 	private GameObject player;
 	private PlayerHealth playerHealth;
 	private Animator anim;
@@ -51,15 +54,30 @@ public class EnemyAttack : MonoBehaviour {
 		if ((playerHealth.playerIsDead == false) && (isAttacking == false) && (distanceFromPlayer >= attackRangeMin)
 			&& (distanceFromPlayer <= attackRangeMax) && (attackTimer >= timeBetweenAttacks))
 		{
-			Attack ();
+			if (enemyType == EnemyType.Titanling) 
+			{
+				AttackTitanling ();
+			}
+
+			if (enemyType == EnemyType.StoneGolem) 
+			{
+				AttackStoneGolem ();
+			}
 		}
 	}
 
-	void Attack ()
+	void AttackTitanling ()
 	{
 		isAttacking = true;
 		nav.isStopped = true;
 		anim.SetTrigger ("titanlingBasicAttack");
+	}
+
+	void AttackStoneGolem ()
+	{
+		isAttacking = true;
+		nav.isStopped = true;
+		anim.SetTrigger ("stoneGolemAttack");
 	}
 
 	public void AttackDone ()
