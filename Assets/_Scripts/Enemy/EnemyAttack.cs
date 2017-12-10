@@ -12,6 +12,7 @@ public class EnemyAttack : MonoBehaviour {
 	private PlayerHealth playerHealth;
 	private Animator anim;
 	private NavMeshAgent nav;
+	private EnemyHealth enemyHealth;
 
 	public bool isAttacking;
 
@@ -37,13 +38,38 @@ public class EnemyAttack : MonoBehaviour {
 
 		anim = GetComponentInChildren<Animator> ();
 		nav = GetComponent<NavMeshAgent> ();
+		enemyHealth = GetComponent<EnemyHealth> ();
 	}
 
 	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
 		playerHealth = player.GetComponent<PlayerHealth> ();
+
+		if (enemyType == EnemyType.StoneGolem) {
+			StartCoroutine ("StoneGolemAttack");
+		}
 	}
+
+	IEnumerator StoneGolemAttack () 
+	{
+		yield return new WaitForSeconds (5.0f);
+		while (!enemyHealth.isDead) 
+		{
+			nav.isStopped = true;
+			anim.SetBool ("isRunning", false);
+
+			anim.SetTrigger ("stoneGolemAttack");
+			yield return new WaitForSeconds (5.0f);
+		}
+	}
+
+	public void StoneGolemAttackStop ()
+	{
+		nav.isStopped = false;
+		anim.SetBool ("isRunning", true);
+	}
+
 
 	void Update ()
 	{
@@ -59,10 +85,10 @@ public class EnemyAttack : MonoBehaviour {
 				AttackTitanling ();
 			}
 
-			if (enemyType == EnemyType.StoneGolem) 
+			/*if (enemyType == EnemyType.StoneGolem) 
 			{
 				AttackStoneGolem ();
-			}
+			}*/
 		}
 	}
 

@@ -61,6 +61,7 @@
      <Compile Include="Assets\_Scripts\Enemy\EnemyAttack.cs" />
      <Compile Include="Assets\_Scripts\Enemy\EnemyHealth.cs" />
      <Compile Include="Assets\_Scripts\Enemy\EnemyMovement.cs" />
+     <Compile Include="Assets\_Scripts\Enemy\StoneGolemAnimations.cs" />
      <Compile Include="Assets\_Scripts\Enemy\TitanlingAnimations.cs" />
      <Compile Include="Assets\_Scripts\Player\PlayerAttack.cs" />
      <Compile Include="Assets\_Scripts\Player\PlayerData.cs" />
