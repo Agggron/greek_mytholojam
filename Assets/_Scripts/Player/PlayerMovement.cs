@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+	private Animator anim;
 	private PlayerFootsteps playerFootsteps;
 	private Rigidbody rb;
 	private Vector3 movement;
 
-	public float speed = 5.0f;
+	public float speed = 7.5f;
 
 	void Awake() 
 	{
+		anim = GetComponentInChildren<Animator> ();
 		playerFootsteps = GetComponent<PlayerFootsteps> ();
 		rb = GetComponent<Rigidbody> ();
 	}
@@ -24,6 +26,8 @@ public class PlayerMovement : MonoBehaviour {
 		// if there is any movement in horizontal or vertical
 		if ((Mathf.RoundToInt (horizontal) != 0) || (Mathf.RoundToInt (vertical) != 0)) 
 		{
+			anim.SetBool ("isRunning", true);
+
 			playerFootsteps.playerIsMoving = true;
 
 			Move (horizontal, vertical);
@@ -32,6 +36,8 @@ public class PlayerMovement : MonoBehaviour {
 		} 
 		else 
 		{
+			anim.SetBool ("isRunning", false);
+
 			playerFootsteps.playerIsMoving = false;
 		}
 	}
