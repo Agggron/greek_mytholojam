@@ -184,6 +184,11 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 3724428}
+--- !u!1 &42374671 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1015500421070494, guid: f0b0f3a31d7a48b42a29b3fe9289aaa1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1242463711}
 --- !u!1001 &112974176
 Prefab:
   m_ObjectHideFlags: 0
@@ -1716,6 +1721,23 @@ MonoBehaviour:
   - {fileID: 1209594165}
   - {fileID: 699530644}
   spawnFrequency: 1
+--- !u!1 &869487508 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1505484308348464, guid: f0b0f3a31d7a48b42a29b3fe9289aaa1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1242463711}
+--- !u!114 &869487509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869487508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f989acfdd73b5d441a2f748b93fa040b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pants: {fileID: 42374671}
 --- !u!1 &904489495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,6 +2631,10 @@ Prefab:
     - target: {fileID: 136734452798951558, guid: f0b0f3a31d7a48b42a29b3fe9289aaa1,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015500421070494, guid: f0b0f3a31d7a48b42a29b3fe9289aaa1, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -3893,7 +3919,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087250284}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 10, z: -10}
+  m_LocalPosition: {x: 0, y: 7.5, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3915,7 +3941,7 @@ MonoBehaviour:
   playerPosition: {x: 0, y: 0, z: 0}
   cameraPointPosition: {x: 0, y: 0, z: 0}
   offsetFromCameraPoint: {x: 0, y: 0, z: 0}
-  boundaryRadius: 5
+  boundaryRadius: 3
   leftBoundary: 0
   rightBoundary: 0
   topBoundary: 0
