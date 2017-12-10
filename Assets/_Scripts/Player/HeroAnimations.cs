@@ -15,7 +15,6 @@ public class HeroAnimations : MonoBehaviour {
 		playerHealth = GetComponentInParent<PlayerHealth> ();
 	}
 		
-
 	void FreezeMovementStart ()
 	{
 		playerMovement.enabled = false;
@@ -46,4 +45,5 @@ public class HeroAnimations : MonoBehaviour {
 		playerHealth.playerInvulnerable = PlayerHealth.PlayerInvulnerable.No;
 		hero.position = transform.position;
 	}
+
 }

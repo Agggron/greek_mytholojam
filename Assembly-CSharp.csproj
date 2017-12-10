@@ -74,6 +74,7 @@
      <Compile Include="Assets\_Scripts\UIButtons.cs" />
      <Compile Include="Assets\BoulderMovementDamage.cs" />
      <Compile Include="Assets\BoulderShards.cs" />
+     <Compile Include="Assets\InfernoRageAttack.cs" />
      <None Include="Assets\FMOD\greekmytho_fmod\Metadata\AudioFile\{1df97108-3216-40f0-a748-f475690ce0b8}.xml" />
      <None Include="Assets\FMOD\greekmytho_fmod\Metadata\EncodingSetting\{221033bf-da60-448d-b2c8-b12c9607483a}.xml" />
      <None Include="Assets\FMOD\greekmytho_fmod\Metadata\Asset\{4f244b2e-4214-45bb-89a5-8ae6a8c5e997}.xml" />
