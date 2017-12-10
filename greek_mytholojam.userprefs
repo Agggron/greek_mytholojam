@@ -1,12 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\Enemy\EnemyAttack.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HeroAnimations.cs">
     <Files>
-      <File FileName="Assets\_Scripts\Enemy\EnemyMovement.cs" Line="36" Column="29" />
-      <File FileName="Assets\_Scripts\Enemy\EnemyHealth.cs" Line="41" Column="55" />
-      <File FileName="Assets\_Scripts\Enemy\EnemyAttack.cs" Line="70" Column="36" />
-      <File FileName="Assets\_Scripts\Enemy\TitanlingAnimations.cs" Line="7" Column="1" />
-      <File FileName="Assets\_Scripts\Enemy\StoneGolemAnimations.cs" Line="15" Column="3" />
+      <File FileName="Assets\_Scripts\Player\PlayerAttack.cs" Line="74" Column="35" />
+      <File FileName="Assets\_Scripts\Player\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Player\SwordAttack.cs" Line="8" Column="35" />
+      <File FileName="Assets\HeroAnimations.cs" Line="15" Column="3" />
+      <File FileName="Assets\_Scripts\Enemy\TitanlingAnimations.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

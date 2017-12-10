@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
 
-	GameObject player;
+	public GameObject playerForCamera;
 	public Vector3 playerPosition;
 	public Vector3 cameraPointPosition;
 	public Vector3 offsetFromCameraPoint;
@@ -18,13 +18,13 @@ public class CameraMovement : MonoBehaviour {
 
 	void Start()
 	{
-		player = GameObject.FindGameObjectWithTag ("Player");
-		if (player == null) 
+		playerForCamera = GameObject.FindGameObjectWithTag ("PlayerLocationForCamera");
+		if (playerForCamera == null) 
 		{
-			Debug.Log ("Cannot find Player GameObject!");
+			Debug.Log ("Cannot find PlayerLocationForCamera GameObject!");
 		}
 
-		playerPosition = player.transform.position;
+		playerPosition = playerForCamera.transform.position;
 		cameraPointPosition = playerPosition;
 		offsetFromCameraPoint = transform.position - cameraPointPosition;
 
@@ -47,7 +47,7 @@ public class CameraMovement : MonoBehaviour {
 	// Only call this at the very end of each frame (after all movement is done)
 	void LateUpdate()
 	{
-		playerPosition = player.transform.position;
+		playerPosition = playerForCamera.transform.position;
 
 		// If player has moved past boundary, move the entire boundary box to accomodate this
 

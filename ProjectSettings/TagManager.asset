@@ -11,6 +11,7 @@ TagManager:
   - ParthenonController
   - SceneController
   - GameUIController
+  - PlayerLocationForCamera
   layers:
   - Default
   - TransparentFX
