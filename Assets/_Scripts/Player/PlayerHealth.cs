@@ -41,6 +41,13 @@ public class PlayerHealth : MonoBehaviour {
 
 	}
 
+	void Update ()
+	{
+		PDATA_player = PlayerData.player;
+		PDATA_health = PlayerData.health;
+		PDATA_progress = PlayerData.progress;
+	}
+
 	public void TakeDamage (int damage) 
 	{
 		int newHealth = PlayerData.health - damage;

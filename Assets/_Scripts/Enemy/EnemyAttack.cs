@@ -25,6 +25,9 @@ public class EnemyAttack : MonoBehaviour {
 	public float timeBetweenDamageInstances = 0.5f;
 	public float damageTimer;
 
+	public GameObject boulder;
+	public Transform boulderSpawnPoint;
+
 	void Awake()
 	{
 		GameObject playerObject = GameObject.FindGameObjectWithTag ("Player");
@@ -60,6 +63,8 @@ public class EnemyAttack : MonoBehaviour {
 			anim.SetBool ("isRunning", false);
 
 			anim.SetTrigger ("stoneGolemAttack");
+			GameObject newBoulder = Instantiate (boulder, boulderSpawnPoint.position, boulderSpawnPoint.rotation);
+			newBoulder.GetComponent<BoulderMovementDamage> ().ShootBoulder ();
 			yield return new WaitForSeconds (5.0f);
 		}
 	}
