@@ -28,6 +28,9 @@ public class EnemyAttack : MonoBehaviour {
 	public GameObject boulder;
 	public Transform boulderSpawnPoint;
 
+	public GameObject lava;
+	public Transform lavaSpawnPoint;
+
 	void Awake()
 	{
 		GameObject playerObject = GameObject.FindGameObjectWithTag ("Player");
@@ -52,6 +55,10 @@ public class EnemyAttack : MonoBehaviour {
 		if (enemyType == EnemyType.StoneGolem) {
 			StartCoroutine ("StoneGolemAttack");
 		}
+
+		if (enemyType == EnemyType.Titan) {
+			StartCoroutine ("TitanAttack");
+		}
 	}
 
 	IEnumerator StoneGolemAttack () 
@@ -69,7 +76,53 @@ public class EnemyAttack : MonoBehaviour {
 		}
 	}
 
+	IEnumerator TitanAttack ()
+	{
+
+		yield return new WaitForSeconds (4.0f);
+		while (!enemyHealth.isDead) 
+		{
+			nav.isStopped = true;
+			anim.SetBool ("isRunning", false);
+
+			anim.SetTrigger ("titanSpit");
+			GameObject newLava = Instantiate (lava, lavaSpawnPoint.position, lavaSpawnPoint.rotation);
+			newLava.GetComponent<LavaDamage> ().ShootLava ();
+			yield return new WaitForSeconds (5.0f);
+
+			if (GetDistanceFromPlayer () <= 5.0f) {
+				nav.isStopped = true;
+				anim.SetBool ("isRunning", false);
+				anim.SetTrigger ("titanStomp");
+				yield return new WaitForSeconds (4.0f);
+			} else {
+				nav.isStopped = true;
+				anim.SetBool ("isRunning", false);
+		
+				anim.SetTrigger ("titanSpit");
+				newLava = Instantiate (lava, lavaSpawnPoint.position, lavaSpawnPoint.rotation);
+				newLava.GetComponent<LavaDamage> ().ShootLava ();
+				yield return new WaitForSeconds (4.0f);
+			}
+
+		
+		}
+
+	}
+
+	float GetDistanceFromPlayer () 
+	{
+		return Vector3.Distance (player.transform.position, transform.position);
+	}
+
 	public void StoneGolemAttackStop ()
+	{
+		Debug.Log ("i'm called");
+		nav.isStopped = false;
+		anim.SetBool ("isRunning", true);
+	}
+
+	public void TitanAttackStop ()
 	{
 		nav.isStopped = false;
 		anim.SetBool ("isRunning", true);

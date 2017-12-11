@@ -33,7 +33,6 @@ public class EnemyMovement : MonoBehaviour {
 
 	void Update()
 	{
-		Debug.Log (nav.isStopped);
 		if (!playerHealth.playerIsDead) 
 		{
 			if (!nav.isStopped) 

@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour {
 	public float timeBetweenBasicAttack = 1.0f;
 	public float basicAttackTimer;
 
-	public float timeBetweenSpecialAttack = 1.0f;
+	public float timeBetweenSpecialAttack = 3.0f;
 	public float specialAttackTimer;
 
 

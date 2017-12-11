@@ -36,20 +36,6 @@ public class EnemyHealth : MonoBehaviour {
 		currentHealth = startingHealth;
 	}
 
-	void Update ()
-	{
-		// Move this function over to when take damage works
-		if ((currentHealth <= 0) && (!isDead))
-		{
-			if (enemyType == EnemyType.StoneGolem) 
-			{
-				nav.isStopped = true;
-				isDead = true;
-				anim.SetTrigger ("stoneGolemDeath");
-				Destroy (gameObject, 5.0f);
-			}
-		}
-	}
 
 	public void TakeDamage (int damage) 
 	{
@@ -73,7 +59,13 @@ public class EnemyHealth : MonoBehaviour {
 			anim.SetTrigger ("stoneGolemDeath");
 			Destroy (gameObject, 5.0f);
 
-		} else {
+		} 
+		if (enemyType == EnemyType.Titan) {
+			anim.SetTrigger ("titanDead");
+			Destroy (gameObject, 10.0f);
+
+		} 
+		else {
 			Destroy (this.gameObject);
 		}
 	}

@@ -31,9 +31,16 @@ public class UIButtons : MonoBehaviour {
 
 	public void PressPlayGameButton() 
 	{
-		mainMenuController.SetUpChoosePlayer ();
+		mainMenuController.StartGameFromMainMenu ();
 
 		FMODUnity.RuntimeManager.PlayOneShot (SoundPlayGameButton, mainMenuController.playGameButton.gameObject.transform.position);
+	}
+
+	public void PressInstructionsButton ()
+	{
+		mainMenuController.SetUpInstructions ();
+
+		FMODUnity.RuntimeManager.PlayOneShot (SoundPlayGameButton, mainMenuController.instructionsButton.gameObject.transform.position);
 	}
 
 	public void PressChoosePlayerButton(int playerChoice) 
@@ -53,12 +60,20 @@ public class UIButtons : MonoBehaviour {
 				FMODUnity.RuntimeManager.PlayOneShot (SoundAirPlayerButton, mainMenuController.playGameButton.gameObject.transform.position);
 				break;
 		}
-		mainMenuController.SetPlayer (playerChoice);
 		mainMenuController.StartGameFromMainMenu ();
 	}
 
 	public void PressMainMenuButton ()
 	{
 		mainMenuController.SetUpDefault ();
+
+		FMODUnity.RuntimeManager.PlayOneShot (SoundPlayGameButton, mainMenuController.mainMenuButton.gameObject.transform.position);
+	}
+
+	public void PressCreditsButton ()
+	{
+		mainMenuController.SetUpCredits ();
+
+		FMODUnity.RuntimeManager.PlayOneShot (SoundPlayGameButton, mainMenuController.creditsButton.gameObject.transform.position);
 	}
 }

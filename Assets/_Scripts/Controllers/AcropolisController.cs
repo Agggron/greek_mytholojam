@@ -17,9 +17,16 @@ public class AcropolisController : MonoBehaviour {
 	public int playerStartProgress = 0;
 
 	public Transform playerSpawnPoint;
-	public GameObject[] enemies;
-	public Transform[] enemySpawnPoints;
-	public float spawnFrequency = 10.0f;
+	public GameObject titanling;
+	public GameObject stoneGolem;
+	public GameObject boss;
+	public Transform[] titanlingSpawnPoints;
+	public Transform[] stoneGolemSpawnPoints;
+	public Transform bossSpawnPoint;
+	public float titanlingSpawnFrequency = 1.0f;
+	public float stoneGolemSpawnFrequency = 5.0f;
+
+	public bool bossBattleStarted;
 
 	void Awake() 
 	{
@@ -60,45 +67,69 @@ public class AcropolisController : MonoBehaviour {
 		PDATA_health = PlayerData.health;
 		PDATA_progress = PlayerData.progress;
 
-		InvokeRepeating ("SpawnEnemy", 1.0f, spawnFrequency);
-	}
+		bossBattleStarted = false;
 
-	void SpawnEnemy () 
+		StartCoroutine (ControlGame ());
+		InvokeRepeating ("SpawnTitanling", 1.0f, titanlingSpawnFrequency);
+		InvokeRepeating ("SpawnStoneGolem", 5.0f, stoneGolemSpawnFrequency);
+	}
+		
+	void SpawnTitanling () 
 	{
 		if (playerHealth.playerIsDead == false)
 		{
-			if ((enemies.Length != 0) && (enemySpawnPoints.Length != 0)) 
-			{
-				GameObject enemy = enemies [Mathf.FloorToInt (Random.Range (0.0f, enemies.Length))];
-				Transform enemySpawnPoint = enemySpawnPoints [Mathf.FloorToInt (Random.Range (0.0f, enemySpawnPoints.Length))];
-
-				Instantiate (enemy, enemySpawnPoint.position, enemySpawnPoint.rotation);
-			}
+			Transform spawnPoint = titanlingSpawnPoints [Mathf.FloorToInt (Random.Range (0.0f, titanlingSpawnPoints.Length))];
+			Instantiate (titanling, spawnPoint.position, spawnPoint.rotation);
 		}
 	}
 
-	void Update()
+	void SpawnStoneGolem () 
 	{
-		PDATA_player = PlayerData.player;
-		PDATA_health = PlayerData.health;
-		PDATA_progress = PlayerData.progress;
-
-		if (Input.GetKeyDown (KeyCode.Escape)) 
+		if (playerHealth.playerIsDead == false)
 		{
-			sceneController.menuSceneOption = SceneController.MenuSceneOptions.Default;
-			sceneController.StartMenuScene ();
+			Transform spawnPoint = stoneGolemSpawnPoints [Mathf.FloorToInt (Random.Range (0.0f, stoneGolemSpawnPoints.Length))];
+			Instantiate (stoneGolem, spawnPoint.position, spawnPoint.rotation);
 		}
+	}
 
-		if (PlayerData.health <= 0) 
-		{
-			sceneController.menuSceneOption = SceneController.MenuSceneOptions.Lose;
-			sceneController.StartMenuScene ();
-		}
+	void BossBattle () 
+	{
+		Instantiate (boss, bossSpawnPoint.position, bossSpawnPoint.rotation);
+	}
 
-		if (PlayerData.progress >= 100) 
+
+	IEnumerator ControlGame ()
+	{
+		while (true) 
 		{
-			sceneController.menuSceneOption = SceneController.MenuSceneOptions.Win;
-			sceneController.StartMenuScene ();
+			if (Input.GetKeyDown (KeyCode.Escape)) 
+			{
+				sceneController.menuSceneOption = SceneController.MenuSceneOptions.Default;
+				sceneController.StartMenuScene ();
+			}
+
+			if (PlayerData.health <= 0) 
+			{
+				yield return new WaitForSeconds (10.0f);
+				sceneController.menuSceneOption = SceneController.MenuSceneOptions.Lose;
+				sceneController.StartMenuScene ();
+			
+			}
+
+			if ((!bossBattleStarted) && (PlayerData.progress >= 100))
+			{
+				bossBattleStarted = true;
+				StartCoroutine ("BossBattle");
+			}
+
+			if (PlayerData.progress >= 1000) 
+			{
+				playerHealth.playerInvulnerable = PlayerHealth.PlayerInvulnerable.Yes;
+				yield return new WaitForSeconds (10.0f);
+				sceneController.menuSceneOption = SceneController.MenuSceneOptions.Win;
+				sceneController.StartMenuScene ();
+			}
+			yield return null;
 		}
 	}
 

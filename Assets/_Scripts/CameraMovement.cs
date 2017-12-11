@@ -18,8 +18,9 @@ public class CameraMovement : MonoBehaviour {
 
 	void Start()
 	{
-		playerForCamera = GameObject.FindGameObjectWithTag ("PlayerLocationForCamera");
-		if (playerForCamera == null) 
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+		playerForCamera = player.transform.GetChild (0).gameObject;
+		if (!playerForCamera.CompareTag("PlayerLocationForCamera")) 
 		{
 			Debug.Log ("Cannot find PlayerLocationForCamera GameObject!");
 		}

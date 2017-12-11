@@ -11,6 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__Scenes/Acropolis.unity
     guid: 95154b27a436146409989c5721b2ea79
-  - enabled: 1
+  - enabled: 0
     path: Assets/__Scenes/Parthenon.unity
     guid: 264fe6704bf43264f9f96b0a39d12170
