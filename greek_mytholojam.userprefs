@@ -1,0 +1,33 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\Controllers\MainMenuController.cs">
+    <Files>
+      <File FileName="Assets\_Scripts\Player\SwordAttack.cs" Line="10" Column="2" />
+      <File FileName="Assets\BoulderMovementDamage.cs" Line="28" Column="4" />
+      <File FileName="Assets\BoulderShards.cs" Line="41" Column="3" />
+      <File FileName="Assets\_Scripts\Enemy\EnemyAttack.cs" Line="120" Column="28" />
+      <File FileName="Assets\_Scripts\Player\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Player\PlayerHealth.cs" Line="47" Column="16" />
+      <File FileName="Assets\_Scripts\Player\PlayerAttack.cs" Line="17" Column="43" />
+      <File FileName="Assets\_Scripts\Player\HeroAnimations.cs" Line="1" Column="1" />
+      <File FileName="Assets\InfernoRageAttack.cs" Line="7" Column="35" />
+      <File FileName="Assets\_Scripts\Enemy\EnemyMovement.cs" Line="35" Column="3" />
+      <File FileName="Assets\TitanAnimations.cs" Line="28" Column="24" />
+      <File FileName="Assets\TitanStomp.cs" Line="15" Column="4" />
+      <File FileName="Assets\LavaDamage.cs" Line="10" Column="28" />
+      <File FileName="Assets\_Scripts\Enemy\EnemyHealth.cs" Line="38" Column="1" />
+      <File FileName="Assets\_Scripts\Controllers\SceneController.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Controllers\AcropolisController.cs" Line="112" Column="5" />
+      <File FileName="Assets\_Scripts\Controllers\MainMenuController.cs" Line="170" Column="35" />
+      <File FileName="Assets\_Scripts\UIButtons.cs" Line="75" Column="38" />
+      <File FileName="Assets\_Scripts\CameraMovement.cs" Line="22" Column="61" />
+      <File FileName="Assets\MainMenuMusic.cs" Line="5" Column="42" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Agggron\Documents\Aaron_Unity_Games\Greek_Mytholojam_Git\greek_mytholojam\Assets\_Scripts\Controllers\GameController.cs" line="91" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

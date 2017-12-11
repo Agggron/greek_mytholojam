@@ -1,0 +1,9 @@
+{8d2bfe17-3c8c-4b68-98e2-d0accfde1407} event:/User Interface/ChoosePlayerAir
+{5e65de26-c51a-4776-9c17-1f7b69de1f87} event:/User Interface/ChoosePlayerEarth
+{6d85f3ee-46cf-45fc-a374-b31fa8a42bb4} event:/User Interface/ChoosePlayerFire
+{331b5b3b-a839-4208-8a8c-06c3eac331ca} event:/User Interface/ChoosePlayerWater
+{4257ab01-d3d1-4836-8c4c-d1f97ffd1fda} event:/User Interface/PlayGameButton
+{c9ac9d01-78c0-4e86-b98c-d44cc33e1079} event:/Player/Footsteps
+{f3e244db-db7e-4362-800a-e801441c5f9c} bus:/
+{81bfd047-d926-4866-822d-845f95139939} bus:/Reverb
+{0ee8e655-5ba4-4d26-8e6d-254d37306723} bank:/Master Bank
