@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114591232225446482}
-  - {fileID: 114336875581502218}
+  - {fileID: 114138197997643706}
   EditorEvents:
   - {fileID: 114277457456802774}
   - {fileID: 114020899667357342}
@@ -21,9 +21,9 @@ MonoBehaviour:
   - {fileID: 114695108368653076}
   - {fileID: 114723497464591554}
   - {fileID: 114556602495443208}
-  MasterBankRef: {fileID: 114336875581502218}
+  MasterBankRef: {fileID: 114138197997643706}
   StringsBankRef: {fileID: 114591232225446482}
-  stringsBankWriteTime: 636473210989458392
+  stringsBankWriteTime: 636474994912812631
   cacheVersion: 2
 --- !u!114 &114003107027359632
 MonoBehaviour:
@@ -61,7 +61,7 @@ MonoBehaviour:
   Path: event:/User Interface/ChoosePlayerAir
   guid: 17fe2b8d8c3c684b98e2d0accfde1407
   Banks:
-  - {fileID: 114336875581502218}
+  - {fileID: 114138197997643706}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -148,6 +148,25 @@ MonoBehaviour:
   - Name: Desktop
     Value: 65408
   Exists: 0
+--- !u!114 &114138197997643706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\Giuseppe\Desktop\gmjgit\greek_mytholojam\Assets\FMOD\greekmytho_fmod\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636474994912797623
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 65408
+  Exists: 1
 --- !u!114 &114277457456802774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +181,7 @@ MonoBehaviour:
   Path: event:/User Interface/PlayGameButton
   guid: 01ab5742d1d336488c4cd1f97ffd1fda
   Banks:
-  - {fileID: 114336875581502218}
+  - {fileID: 114138197997643706}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -321,7 +340,7 @@ MonoBehaviour:
   Path: event:/Player/Footsteps
   guid: 019dacc9c078864eb98cd44cc33e1079
   Banks:
-  - {fileID: 114336875581502218}
+  - {fileID: 114138197997643706}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -341,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets/FMOD/greekmytho_fmod\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636473210989458392
+  lastModified: 636474994912812631
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -398,7 +417,7 @@ MonoBehaviour:
   Path: event:/User Interface/ChoosePlayerWater
   guid: 3b5b1b3339a808428a8c06c3eac331ca
   Banks:
-  - {fileID: 114336875581502218}
+  - {fileID: 114138197997643706}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -438,7 +457,7 @@ MonoBehaviour:
   Path: event:/User Interface/ChoosePlayerFire
   guid: eef3856dcf46fc45a374b31fa8a42bb4
   Banks:
-  - {fileID: 114336875581502218}
+  - {fileID: 114138197997643706}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -479,7 +498,7 @@ MonoBehaviour:
   Path: event:/User Interface/ChoosePlayerEarth
   guid: 26de655e1ac576479c171f7b69de1f87
   Banks:
-  - {fileID: 114336875581502218}
+  - {fileID: 114138197997643706}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
